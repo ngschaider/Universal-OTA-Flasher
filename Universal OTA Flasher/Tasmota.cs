@@ -17,7 +17,7 @@ namespace Universal_OTA_Flasher {
         public static Device CreateDevice(IPAddress ip, string content) {
             Device device = new Device();
             device.Type = DeviceType.Tasmota;
-            device.DisplayName = "Device0";
+            device.DisplayName = "TasmotaDevice";
             device.Ip = ip.ToString();
 
             return device;
@@ -49,10 +49,12 @@ namespace Universal_OTA_Flasher {
 
 
             while (true) {
-                MainForm.instance.Log("Scanning IP " + ip.ToString());
-                string content = await GetTasmotaInfo(ip, token);
-                if (IsTasmotaDevice(content)) {
-                    deviceFoundCallback(CreateDevice(ip, content));
+                if(ip.IsHostAddress()) {
+                    MainForm.instance.Log("Scanning IP " + ip.ToString());
+                    string content = await GetTasmotaInfo(ip, token);
+                    if (IsTasmotaDevice(content)) {
+                        deviceFoundCallback(CreateDevice(ip, content));
+                    }
                 }
 
                 if (token.IsCancellationRequested) {

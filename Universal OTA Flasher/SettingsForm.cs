@@ -39,7 +39,7 @@ namespace Universal_OTA_Flasher {
             // Scanning
             Properties.Settings.Default.scanConcurrentRequests = (int) nup_scan_concurrent_requests.Value;
             Properties.Settings.Default.scanTimeout = (int) nup_scan_timeout.Value;
-            Properties.Settings.Default.scanIPAdressEnd = txt_scanStartIPAddress.Text;
+            Properties.Settings.Default.scanIPAdressStart = txt_scanStartIPAddress.Text;
             Properties.Settings.Default.scanIPAdressEnd = txt_scanEndIPAdress.Text;
 
             // Flashing

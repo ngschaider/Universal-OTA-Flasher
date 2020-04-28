@@ -79,7 +79,7 @@ namespace Universal_OTA_Flasher {
             string[] text = { "Universal OTA Flasher",
                               Properties.Settings.Default.programVersion + "\n\n",
                               "Author: Niklas Gschaider",
-                              "License: CC BY-NC-SA 4.0" };
+                              "License: GPL-v3.0"};
 
 
             TextForm form = new TextForm();

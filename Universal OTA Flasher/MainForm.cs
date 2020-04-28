@@ -20,6 +20,7 @@ namespace Universal_OTA_Flasher {
             instance = this;
             InitializeComponent();
 
+            cb_deviceType.Items.AddRange(DeviceTypeUtils.TypeTexts);
             lbl_selected_file.Text = "";
         }
 
@@ -60,6 +61,11 @@ namespace Universal_OTA_Flasher {
 
                 Log("Scanning stopped. Found " + lv_devices.Items.Count + " devices.");
             } else {
+                if(SelectedDeviceType == "") {
+                    Log("Please select a Device Type");
+                    return;
+                }
+
                 Log("Scanning started.");
                 IsScanning = true;
                 btn_scan.Text = "Stop Scanning";
@@ -67,9 +73,9 @@ namespace Universal_OTA_Flasher {
                 lv_devices.Items.Clear();
                 scanTokenSource = new CancellationTokenSource();
 
-                if (SelectedDeviceType == "Shelly") {
+                if (SelectedDeviceType == DeviceTypeUtils.GetText(DeviceType.Shelly)) {
                     Task task = Shelly.Scan(scanTokenSource.Token, NewDeviceFound, ToggleScanning);
-                } else if (SelectedDeviceType == "Tasmota") {
+                } else if (SelectedDeviceType == DeviceTypeUtils.GetText(DeviceType.Tasmota)) {
                     Task task = Tasmota.Scan(scanTokenSource.Token, NewDeviceFound, ToggleScanning);
                 }
             }

@@ -150,9 +150,6 @@
             // cb_deviceType
             // 
             this.cb_deviceType.FormattingEnabled = true;
-            this.cb_deviceType.Items.AddRange(new object[] {
-            "Shelly",
-            "Tasmota"});
             this.cb_deviceType.Location = new System.Drawing.Point(474, 28);
             this.cb_deviceType.Name = "cb_deviceType";
             this.cb_deviceType.Size = new System.Drawing.Size(121, 21);

@@ -20,7 +20,7 @@ namespace Universal_OTA_Flasher {
             instance = this;
             InitializeComponent();
 
-            cb_deviceType.Items.AddRange(DeviceTypeUtils.TypeTexts);
+            cb_deviceType.Items.AddRange(DeviceTypeUtils.GetDisplayTexts());
             lbl_selected_file.Text = "";
         }
 

@@ -19,7 +19,7 @@ namespace Universal_OTA_Flasher {
         }
 
         public static string[] GetDisplayTexts() {
-            return TypeTexts.Where(x => x == GetText(DeviceType.Unknown)).ToArray();
+            return TypeTexts.Where(x => x != GetText(DeviceType.Unknown)).ToArray();
         }
 
         public static string[] GetTexts() {
